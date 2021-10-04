@@ -1,0 +1,295 @@
+2021-10-04 23:06:57.432  INFO 24628 --- [main] com.example.backend.BackendApplication   : Starting BackendApplication using Java 17 on DESKTOP-QJBICG3 with PID 24628 (/root/cadish/backend/build/classes/java/main started by root in /root/cadish/backend)
+2021-10-04 23:06:57.434  INFO 24628 --- [main] com.example.backend.BackendApplication   : No active profile set, falling back to default profiles: default
+2021-10-04 23:06:57.967  INFO 24628 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-10-04 23:06:57.973  INFO 24628 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-10-04 23:06:57.973  INFO 24628 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.53]
+2021-10-04 23:06:58.022  INFO 24628 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-10-04 23:06:58.022  INFO 24628 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 553 ms
+2021-10-04 23:06:58.269  INFO 24628 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-10-04 23:06:58.280  INFO 24628 --- [main] com.example.backend.BackendApplication   : Started BackendApplication in 1.087 seconds (JVM running for 1.506)
+2021-10-04 23:07:01.071  INFO 24628 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-10-04 23:07:01.071  INFO 24628 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-10-04 23:07:01.073  INFO 24628 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2021-10-04 23:07:01.634 ERROR 24628 --- [http-nio-8080-exec-3] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] threw exception
+
+java.lang.RuntimeException: code: 400 BAD_REQUEST
+	at com.example.backend.service.BookServiceimpl.lambda$getBookList$2(BookServiceimpl.java:30) ~[main/:na]
+	Suppressed: org.springframework.web.reactive.function.client.WebClientResponseException$BadRequest: 400 Bad Request from GET https://openapi.naver.com/v1/search/book.json?query=
+		at org.springframework.web.reactive.function.client.WebClientResponseException.create(WebClientResponseException.java:196) ~[spring-webflux-5.3.10.jar:5.3.10]
+		at org.springframework.web.reactive.function.client.DefaultClientResponse.lambda$createException$1(DefaultClientResponse.java:213) ~[spring-webflux-5.3.10.jar:5.3.10]
+		at reactor.core.publisher.FluxMap$MapSubscriber.onNext(FluxMap.java:106) ~[reactor-core-3.4.10.jar:3.4.10]
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onNext(FluxOnErrorResume.java:79) ~[reactor-core-3.4.10.jar:3.4.10]
+		at reactor.core.publisher.FluxDefaultIfEmpty$DefaultIfEmptySubscriber.onNext(FluxDefaultIfEmpty.java:101) ~[reactor-core-3.4.10.jar:3.4.10]
+		at reactor.core.publisher.FluxMapFuseable$MapFuseableSubscriber.onNext(FluxMapFuseable.java:127) ~[reactor-core-3.4.10.jar:3.4.10]
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onNext(FluxContextWrite.java:107) ~[reactor-core-3.4.10.jar:3.4.10]
+		at reactor.core.publisher.FluxMapFuseable$MapFuseableConditionalSubscriber.onNext(FluxMapFuseable.java:295) ~[reactor-core-3.4.10.jar:3.4.10]
+		at reactor.core.publisher.FluxFilterFuseable$FilterFuseableConditionalSubscriber.onNext(FluxFilterFuseable.java:337) ~[reactor-core-3.4.10.jar:3.4.10]
+		at reactor.core.publisher.Operators$MonoSubscriber.complete(Operators.java:1816) ~[reactor-core-3.4.10.jar:3.4.10]
+		at reactor.core.publisher.MonoCollect$CollectSubscriber.onComplete(MonoCollect.java:159) ~[reactor-core-3.4.10.jar:3.4.10]
+		at reactor.core.publisher.FluxOnAssembly$OnAssemblySubscriber.onComplete(FluxOnAssembly.java:398) ~[reactor-core-3.4.10.jar:3.4.10]
+		at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:142) ~[reactor-core-3.4.10.jar:3.4.10]
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onComplete(FluxPeek.java:260) ~[reactor-core-3.4.10.jar:3.4.10]
+		at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:142) ~[reactor-core-3.4.10.jar:3.4.10]
+		at reactor.netty.channel.FluxReceive.onInboundComplete(FluxReceive.java:400) ~[reactor-netty-core-1.0.11.jar:1.0.11]
+		at reactor.netty.channel.ChannelOperations.onInboundComplete(ChannelOperations.java:419) ~[reactor-netty-core-1.0.11.jar:1.0.11]
+		at reactor.netty.channel.ChannelOperations.terminate(ChannelOperations.java:473) ~[reactor-netty-core-1.0.11.jar:1.0.11]
+		at reactor.netty.http.client.HttpClientOperations.onInboundNext(HttpClientOperations.java:684) ~[reactor-netty-http-1.0.11.jar:1.0.11]
+		at reactor.netty.channel.ChannelOperationsHandler.channelRead(ChannelOperationsHandler.java:93) ~[reactor-netty-core-1.0.11.jar:1.0.11]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379) ~[netty-transport-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365) ~[netty-transport-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357) ~[netty-transport-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.handler.codec.MessageToMessageDecoder.channelRead(MessageToMessageDecoder.java:103) ~[netty-codec-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379) ~[netty-transport-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365) ~[netty-transport-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357) ~[netty-transport-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.channel.CombinedChannelDuplexHandler$DelegatingChannelHandlerContext.fireChannelRead(CombinedChannelDuplexHandler.java:436) ~[netty-transport-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:324) ~[netty-codec-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:296) ~[netty-codec-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.channel.CombinedChannelDuplexHandler.channelRead(CombinedChannelDuplexHandler.java:251) ~[netty-transport-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379) ~[netty-transport-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365) ~[netty-transport-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357) ~[netty-transport-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.handler.ssl.SslHandler.unwrap(SslHandler.java:1372) ~[netty-handler-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.handler.ssl.SslHandler.decodeJdkCompatible(SslHandler.java:1235) ~[netty-handler-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.handler.ssl.SslHandler.decode(SslHandler.java:1284) ~[netty-handler-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.handler.codec.ByteToMessageDecoder.decodeRemovalReentryProtection(ByteToMessageDecoder.java:507) ~[netty-codec-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.handler.codec.ByteToMessageDecoder.callDecode(ByteToMessageDecoder.java:446) ~[netty-codec-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:276) ~[netty-codec-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379) ~[netty-transport-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365) ~[netty-transport-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357) ~[netty-transport-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1410) ~[netty-transport-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379) ~[netty-transport-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365) ~[netty-transport-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:919) ~[netty-transport-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.channel.epoll.AbstractEpollStreamChannel$EpollStreamUnsafe.epollInReady(AbstractEpollStreamChannel.java:795) ~[netty-transport-native-epoll-4.1.68.Final-linux-x86_64.jar:4.1.68.Final]
+		at io.netty.channel.epoll.EpollEventLoop.processReady(EpollEventLoop.java:480) ~[netty-transport-native-epoll-4.1.68.Final-linux-x86_64.jar:4.1.68.Final]
+		at io.netty.channel.epoll.EpollEventLoop.run(EpollEventLoop.java:378) ~[netty-transport-native-epoll-4.1.68.Final-linux-x86_64.jar:4.1.68.Final]
+		at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:986) ~[netty-common-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.68.Final.jar:4.1.68.Final]
+		at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+	Suppressed: reactor.core.publisher.FluxOnAssembly$OnAssemblyException: 
+Error has been observed at the following site(s):
+	|_ checkpoint ⇢ 400 from GET https://openapi.naver.com/v1/search/book.json?query= [DefaultWebClient]
+Stack trace:
+		at com.example.backend.service.BookServiceimpl.lambda$getBookList$2(BookServiceimpl.java:30) ~[main/:na]
+		at reactor.core.publisher.MonoFlatMap$FlatMapMain.onNext(MonoFlatMap.java:125) ~[reactor-core-3.4.10.jar:3.4.10]
+		at reactor.core.publisher.FluxMap$MapSubscriber.onNext(FluxMap.java:120) ~[reactor-core-3.4.10.jar:3.4.10]
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onNext(FluxOnErrorResume.java:79) ~[reactor-core-3.4.10.jar:3.4.10]
+		at reactor.core.publisher.FluxDefaultIfEmpty$DefaultIfEmptySubscriber.onNext(FluxDefaultIfEmpty.java:101) ~[reactor-core-3.4.10.jar:3.4.10]
+		at reactor.core.publisher.FluxMapFuseable$MapFuseableSubscriber.onNext(FluxMapFuseable.java:127) ~[reactor-core-3.4.10.jar:3.4.10]
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onNext(FluxContextWrite.java:107) ~[reactor-core-3.4.10.jar:3.4.10]
+		at reactor.core.publisher.FluxMapFuseable$MapFuseableConditionalSubscriber.onNext(FluxMapFuseable.java:295) ~[reactor-core-3.4.10.jar:3.4.10]
+		at reactor.core.publisher.FluxFilterFuseable$FilterFuseableConditionalSubscriber.onNext(FluxFilterFuseable.java:337) ~[reactor-core-3.4.10.jar:3.4.10]
+		at reactor.core.publisher.Operators$MonoSubscriber.complete(Operators.java:1816) ~[reactor-core-3.4.10.jar:3.4.10]
+		at reactor.core.publisher.MonoCollect$CollectSubscriber.onComplete(MonoCollect.java:159) ~[reactor-core-3.4.10.jar:3.4.10]
+		at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:142) ~[reactor-core-3.4.10.jar:3.4.10]
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onComplete(FluxPeek.java:260) ~[reactor-core-3.4.10.jar:3.4.10]
+		at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:142) ~[reactor-core-3.4.10.jar:3.4.10]
+		at reactor.netty.channel.FluxReceive.onInboundComplete(FluxReceive.java:400) ~[reactor-netty-core-1.0.11.jar:1.0.11]
+		at reactor.netty.channel.ChannelOperations.onInboundComplete(ChannelOperations.java:419) ~[reactor-netty-core-1.0.11.jar:1.0.11]
+		at reactor.netty.channel.ChannelOperations.terminate(ChannelOperations.java:473) ~[reactor-netty-core-1.0.11.jar:1.0.11]
+		at reactor.netty.http.client.HttpClientOperations.onInboundNext(HttpClientOperations.java:684) ~[reactor-netty-http-1.0.11.jar:1.0.11]
+		at reactor.netty.channel.ChannelOperationsHandler.channelRead(ChannelOperationsHandler.java:93) ~[reactor-netty-core-1.0.11.jar:1.0.11]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379) ~[netty-transport-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365) ~[netty-transport-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357) ~[netty-transport-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.handler.codec.MessageToMessageDecoder.channelRead(MessageToMessageDecoder.java:103) ~[netty-codec-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379) ~[netty-transport-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365) ~[netty-transport-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357) ~[netty-transport-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.channel.CombinedChannelDuplexHandler$DelegatingChannelHandlerContext.fireChannelRead(CombinedChannelDuplexHandler.java:436) ~[netty-transport-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:324) ~[netty-codec-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:296) ~[netty-codec-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.channel.CombinedChannelDuplexHandler.channelRead(CombinedChannelDuplexHandler.java:251) ~[netty-transport-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379) ~[netty-transport-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365) ~[netty-transport-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357) ~[netty-transport-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.handler.ssl.SslHandler.unwrap(SslHandler.java:1372) ~[netty-handler-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.handler.ssl.SslHandler.decodeJdkCompatible(SslHandler.java:1235) ~[netty-handler-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.handler.ssl.SslHandler.decode(SslHandler.java:1284) ~[netty-handler-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.handler.codec.ByteToMessageDecoder.decodeRemovalReentryProtection(ByteToMessageDecoder.java:507) ~[netty-codec-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.handler.codec.ByteToMessageDecoder.callDecode(ByteToMessageDecoder.java:446) ~[netty-codec-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:276) ~[netty-codec-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379) ~[netty-transport-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365) ~[netty-transport-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357) ~[netty-transport-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1410) ~[netty-transport-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379) ~[netty-transport-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365) ~[netty-transport-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:919) ~[netty-transport-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.channel.epoll.AbstractEpollStreamChannel$EpollStreamUnsafe.epollInReady(AbstractEpollStreamChannel.java:795) ~[netty-transport-native-epoll-4.1.68.Final-linux-x86_64.jar:4.1.68.Final]
+		at io.netty.channel.epoll.EpollEventLoop.processReady(EpollEventLoop.java:480) ~[netty-transport-native-epoll-4.1.68.Final-linux-x86_64.jar:4.1.68.Final]
+		at io.netty.channel.epoll.EpollEventLoop.run(EpollEventLoop.java:378) ~[netty-transport-native-epoll-4.1.68.Final-linux-x86_64.jar:4.1.68.Final]
+		at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:986) ~[netty-common-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.68.Final.jar:4.1.68.Final]
+		at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+
+2021-10-04 23:07:01.638 ERROR 24628 --- [http-nio-8080-exec-3] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is java.lang.RuntimeException: java.lang.RuntimeException: code: 400 BAD_REQUEST] with root cause
+
+java.lang.RuntimeException: code: 400 BAD_REQUEST
+	at com.example.backend.service.BookServiceimpl.lambda$getBookList$2(BookServiceimpl.java:30) ~[main/:na]
+	Suppressed: org.springframework.web.reactive.function.client.WebClientResponseException$BadRequest: 400 Bad Request from GET https://openapi.naver.com/v1/search/book.json?query=
+		at org.springframework.web.reactive.function.client.WebClientResponseException.create(WebClientResponseException.java:196) ~[spring-webflux-5.3.10.jar:5.3.10]
+		at org.springframework.web.reactive.function.client.DefaultClientResponse.lambda$createException$1(DefaultClientResponse.java:213) ~[spring-webflux-5.3.10.jar:5.3.10]
+		at reactor.core.publisher.FluxMap$MapSubscriber.onNext(FluxMap.java:106) ~[reactor-core-3.4.10.jar:3.4.10]
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onNext(FluxOnErrorResume.java:79) ~[reactor-core-3.4.10.jar:3.4.10]
+		at reactor.core.publisher.FluxDefaultIfEmpty$DefaultIfEmptySubscriber.onNext(FluxDefaultIfEmpty.java:101) ~[reactor-core-3.4.10.jar:3.4.10]
+		at reactor.core.publisher.FluxMapFuseable$MapFuseableSubscriber.onNext(FluxMapFuseable.java:127) ~[reactor-core-3.4.10.jar:3.4.10]
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onNext(FluxContextWrite.java:107) ~[reactor-core-3.4.10.jar:3.4.10]
+		at reactor.core.publisher.FluxMapFuseable$MapFuseableConditionalSubscriber.onNext(FluxMapFuseable.java:295) ~[reactor-core-3.4.10.jar:3.4.10]
+		at reactor.core.publisher.FluxFilterFuseable$FilterFuseableConditionalSubscriber.onNext(FluxFilterFuseable.java:337) ~[reactor-core-3.4.10.jar:3.4.10]
+		at reactor.core.publisher.Operators$MonoSubscriber.complete(Operators.java:1816) ~[reactor-core-3.4.10.jar:3.4.10]
+		at reactor.core.publisher.MonoCollect$CollectSubscriber.onComplete(MonoCollect.java:159) ~[reactor-core-3.4.10.jar:3.4.10]
+		at reactor.core.publisher.FluxOnAssembly$OnAssemblySubscriber.onComplete(FluxOnAssembly.java:398) ~[reactor-core-3.4.10.jar:3.4.10]
+		at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:142) ~[reactor-core-3.4.10.jar:3.4.10]
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onComplete(FluxPeek.java:260) ~[reactor-core-3.4.10.jar:3.4.10]
+		at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:142) ~[reactor-core-3.4.10.jar:3.4.10]
+		at reactor.netty.channel.FluxReceive.onInboundComplete(FluxReceive.java:400) ~[reactor-netty-core-1.0.11.jar:1.0.11]
+		at reactor.netty.channel.ChannelOperations.onInboundComplete(ChannelOperations.java:419) ~[reactor-netty-core-1.0.11.jar:1.0.11]
+		at reactor.netty.channel.ChannelOperations.terminate(ChannelOperations.java:473) ~[reactor-netty-core-1.0.11.jar:1.0.11]
+		at reactor.netty.http.client.HttpClientOperations.onInboundNext(HttpClientOperations.java:684) ~[reactor-netty-http-1.0.11.jar:1.0.11]
+		at reactor.netty.channel.ChannelOperationsHandler.channelRead(ChannelOperationsHandler.java:93) ~[reactor-netty-core-1.0.11.jar:1.0.11]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379) ~[netty-transport-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365) ~[netty-transport-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357) ~[netty-transport-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.handler.codec.MessageToMessageDecoder.channelRead(MessageToMessageDecoder.java:103) ~[netty-codec-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379) ~[netty-transport-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365) ~[netty-transport-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357) ~[netty-transport-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.channel.CombinedChannelDuplexHandler$DelegatingChannelHandlerContext.fireChannelRead(CombinedChannelDuplexHandler.java:436) ~[netty-transport-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:324) ~[netty-codec-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:296) ~[netty-codec-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.channel.CombinedChannelDuplexHandler.channelRead(CombinedChannelDuplexHandler.java:251) ~[netty-transport-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379) ~[netty-transport-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365) ~[netty-transport-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357) ~[netty-transport-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.handler.ssl.SslHandler.unwrap(SslHandler.java:1372) ~[netty-handler-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.handler.ssl.SslHandler.decodeJdkCompatible(SslHandler.java:1235) ~[netty-handler-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.handler.ssl.SslHandler.decode(SslHandler.java:1284) ~[netty-handler-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.handler.codec.ByteToMessageDecoder.decodeRemovalReentryProtection(ByteToMessageDecoder.java:507) ~[netty-codec-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.handler.codec.ByteToMessageDecoder.callDecode(ByteToMessageDecoder.java:446) ~[netty-codec-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:276) ~[netty-codec-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379) ~[netty-transport-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365) ~[netty-transport-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357) ~[netty-transport-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1410) ~[netty-transport-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379) ~[netty-transport-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365) ~[netty-transport-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:919) ~[netty-transport-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.channel.epoll.AbstractEpollStreamChannel$EpollStreamUnsafe.epollInReady(AbstractEpollStreamChannel.java:795) ~[netty-transport-native-epoll-4.1.68.Final-linux-x86_64.jar:4.1.68.Final]
+		at io.netty.channel.epoll.EpollEventLoop.processReady(EpollEventLoop.java:480) ~[netty-transport-native-epoll-4.1.68.Final-linux-x86_64.jar:4.1.68.Final]
+		at io.netty.channel.epoll.EpollEventLoop.run(EpollEventLoop.java:378) ~[netty-transport-native-epoll-4.1.68.Final-linux-x86_64.jar:4.1.68.Final]
+		at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:986) ~[netty-common-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.68.Final.jar:4.1.68.Final]
+		at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+	Suppressed: reactor.core.publisher.FluxOnAssembly$OnAssemblyException: 
+Error has been observed at the following site(s):
+	|_ checkpoint ⇢ 400 from GET https://openapi.naver.com/v1/search/book.json?query= [DefaultWebClient]
+Stack trace:
+		at com.example.backend.service.BookServiceimpl.lambda$getBookList$2(BookServiceimpl.java:30) ~[main/:na]
+		at reactor.core.publisher.MonoFlatMap$FlatMapMain.onNext(MonoFlatMap.java:125) ~[reactor-core-3.4.10.jar:3.4.10]
+		at reactor.core.publisher.FluxMap$MapSubscriber.onNext(FluxMap.java:120) ~[reactor-core-3.4.10.jar:3.4.10]
+		at reactor.core.publisher.FluxOnErrorResume$ResumeSubscriber.onNext(FluxOnErrorResume.java:79) ~[reactor-core-3.4.10.jar:3.4.10]
+		at reactor.core.publisher.FluxDefaultIfEmpty$DefaultIfEmptySubscriber.onNext(FluxDefaultIfEmpty.java:101) ~[reactor-core-3.4.10.jar:3.4.10]
+		at reactor.core.publisher.FluxMapFuseable$MapFuseableSubscriber.onNext(FluxMapFuseable.java:127) ~[reactor-core-3.4.10.jar:3.4.10]
+		at reactor.core.publisher.FluxContextWrite$ContextWriteSubscriber.onNext(FluxContextWrite.java:107) ~[reactor-core-3.4.10.jar:3.4.10]
+		at reactor.core.publisher.FluxMapFuseable$MapFuseableConditionalSubscriber.onNext(FluxMapFuseable.java:295) ~[reactor-core-3.4.10.jar:3.4.10]
+		at reactor.core.publisher.FluxFilterFuseable$FilterFuseableConditionalSubscriber.onNext(FluxFilterFuseable.java:337) ~[reactor-core-3.4.10.jar:3.4.10]
+		at reactor.core.publisher.Operators$MonoSubscriber.complete(Operators.java:1816) ~[reactor-core-3.4.10.jar:3.4.10]
+		at reactor.core.publisher.MonoCollect$CollectSubscriber.onComplete(MonoCollect.java:159) ~[reactor-core-3.4.10.jar:3.4.10]
+		at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:142) ~[reactor-core-3.4.10.jar:3.4.10]
+		at reactor.core.publisher.FluxPeek$PeekSubscriber.onComplete(FluxPeek.java:260) ~[reactor-core-3.4.10.jar:3.4.10]
+		at reactor.core.publisher.FluxMap$MapSubscriber.onComplete(FluxMap.java:142) ~[reactor-core-3.4.10.jar:3.4.10]
+		at reactor.netty.channel.FluxReceive.onInboundComplete(FluxReceive.java:400) ~[reactor-netty-core-1.0.11.jar:1.0.11]
+		at reactor.netty.channel.ChannelOperations.onInboundComplete(ChannelOperations.java:419) ~[reactor-netty-core-1.0.11.jar:1.0.11]
+		at reactor.netty.channel.ChannelOperations.terminate(ChannelOperations.java:473) ~[reactor-netty-core-1.0.11.jar:1.0.11]
+		at reactor.netty.http.client.HttpClientOperations.onInboundNext(HttpClientOperations.java:684) ~[reactor-netty-http-1.0.11.jar:1.0.11]
+		at reactor.netty.channel.ChannelOperationsHandler.channelRead(ChannelOperationsHandler.java:93) ~[reactor-netty-core-1.0.11.jar:1.0.11]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379) ~[netty-transport-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365) ~[netty-transport-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357) ~[netty-transport-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.handler.codec.MessageToMessageDecoder.channelRead(MessageToMessageDecoder.java:103) ~[netty-codec-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379) ~[netty-transport-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365) ~[netty-transport-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357) ~[netty-transport-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.channel.CombinedChannelDuplexHandler$DelegatingChannelHandlerContext.fireChannelRead(CombinedChannelDuplexHandler.java:436) ~[netty-transport-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:324) ~[netty-codec-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:296) ~[netty-codec-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.channel.CombinedChannelDuplexHandler.channelRead(CombinedChannelDuplexHandler.java:251) ~[netty-transport-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379) ~[netty-transport-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365) ~[netty-transport-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357) ~[netty-transport-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.handler.ssl.SslHandler.unwrap(SslHandler.java:1372) ~[netty-handler-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.handler.ssl.SslHandler.decodeJdkCompatible(SslHandler.java:1235) ~[netty-handler-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.handler.ssl.SslHandler.decode(SslHandler.java:1284) ~[netty-handler-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.handler.codec.ByteToMessageDecoder.decodeRemovalReentryProtection(ByteToMessageDecoder.java:507) ~[netty-codec-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.handler.codec.ByteToMessageDecoder.callDecode(ByteToMessageDecoder.java:446) ~[netty-codec-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:276) ~[netty-codec-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379) ~[netty-transport-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365) ~[netty-transport-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357) ~[netty-transport-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1410) ~[netty-transport-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379) ~[netty-transport-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365) ~[netty-transport-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:919) ~[netty-transport-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.channel.epoll.AbstractEpollStreamChannel$EpollStreamUnsafe.epollInReady(AbstractEpollStreamChannel.java:795) ~[netty-transport-native-epoll-4.1.68.Final-linux-x86_64.jar:4.1.68.Final]
+		at io.netty.channel.epoll.EpollEventLoop.processReady(EpollEventLoop.java:480) ~[netty-transport-native-epoll-4.1.68.Final-linux-x86_64.jar:4.1.68.Final]
+		at io.netty.channel.epoll.EpollEventLoop.run(EpollEventLoop.java:378) ~[netty-transport-native-epoll-4.1.68.Final-linux-x86_64.jar:4.1.68.Final]
+		at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:986) ~[netty-common-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74) ~[netty-common-4.1.68.Final.jar:4.1.68.Final]
+		at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.68.Final.jar:4.1.68.Final]
+		at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+
+2021-10-04 23:11:13.054  INFO 26104 --- [main] com.example.backend.BackendApplication   : Starting BackendApplication using Java 17 on DESKTOP-QJBICG3 with PID 26104 (/root/cadish/backend/build/classes/java/main started by root in /root/cadish/backend)
+2021-10-04 23:11:13.056  INFO 26104 --- [main] com.example.backend.BackendApplication   : No active profile set, falling back to default profiles: default
+2021-10-04 23:11:13.660  INFO 26104 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-10-04 23:11:13.667  INFO 26104 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-10-04 23:11:13.667  INFO 26104 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.53]
+2021-10-04 23:11:13.709  INFO 26104 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-10-04 23:11:13.709  INFO 26104 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 611 ms
+2021-10-04 23:11:13.926  INFO 26104 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-10-04 23:11:13.933  INFO 26104 --- [main] com.example.backend.BackendApplication   : Started BackendApplication in 1.128 seconds (JVM running for 1.597)
+2021-10-04 23:11:18.633  INFO 26104 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-10-04 23:11:18.634  INFO 26104 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-10-04 23:11:18.635  INFO 26104 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+INFO  2021-10-04 23:14:30[main] [StartupInfoLogger.java - logStarting] [BackendApplication:55] - Starting BackendApplication using Java 17 on DESKTOP-QJBICG3 with PID 26879 (/root/cadish/backend/build/classes/java/main started by root in /root/cadish/backend)
+INFO  2021-10-04 23:14:30[main] [SpringApplication.java - logStartupProfileInfo] [BackendApplication:659] - No active profile set, falling back to default profiles: default
+INFO  2021-10-04 23:14:31[main] [TomcatWebServer.java - initialize] [TomcatWebServer:108] - Tomcat initialized with port(s): 8080 (http)
+INFO  2021-10-04 23:14:31[main] [DirectJDKLog.java - log] [StandardService:173] - Starting service [Tomcat]
+INFO  2021-10-04 23:14:31[main] [DirectJDKLog.java - log] [StandardEngine:173] - Starting Servlet engine: [Apache Tomcat/9.0.53]
+INFO  2021-10-04 23:14:31[main] [DirectJDKLog.java - log] [[/]:173] - Initializing Spring embedded WebApplicationContext
+INFO  2021-10-04 23:14:31[main] [ServletWebServerApplicationContext.java - prepareWebApplicationContext] [ServletWebServerApplicationContext:290] - Root WebApplicationContext: initialization completed in 633 ms
+INFO  2021-10-04 23:14:31[main] [TomcatWebServer.java - start] [TomcatWebServer:220] - Tomcat started on port(s): 8080 (http) with context path ''
+INFO  2021-10-04 23:14:31[main] [StartupInfoLogger.java - logStarted] [BackendApplication:61] - Started BackendApplication in 1.188 seconds (JVM running for 1.749)
+INFO  2021-10-04 23:14:51[http-nio-8080-exec-1] [DirectJDKLog.java - log] [[/]:173] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+INFO  2021-10-04 23:14:51[http-nio-8080-exec-1] [FrameworkServlet.java - initServletBean] [DispatcherServlet:525] - Initializing Servlet 'dispatcherServlet'
+INFO  2021-10-04 23:14:51[http-nio-8080-exec-1] [FrameworkServlet.java - initServletBean] [DispatcherServlet:547] - Completed initialization in 0 ms
+WARN  2021-10-04 23:15:00[http-nio-8080-exec-9] [AbstractHandlerExceptionResolver.java - logException] [DefaultHandlerExceptionResolver:207] - Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'query' for method parameter type String is not present]
+WARN  2021-10-04 23:15:33[http-nio-8080-exec-3] [AbstractHandlerExceptionResolver.java - logException] [DefaultHandlerExceptionResolver:207] - Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'query' for method parameter type String is not present]
+INFO  2021-10-04 23:26:09[main] [StartupInfoLogger.java - logStarting] [BackendApplication:55] - Starting BackendApplication using Java 17 on DESKTOP-QJBICG3 with PID 29413 (/root/cadish/backend/build/classes/java/main started by root in /root/cadish/backend)
+INFO  2021-10-04 23:26:09[main] [SpringApplication.java - logStartupProfileInfo] [BackendApplication:659] - No active profile set, falling back to default profiles: default
+INFO  2021-10-04 23:26:09[main] [TomcatWebServer.java - initialize] [TomcatWebServer:108] - Tomcat initialized with port(s): 8080 (http)
+INFO  2021-10-04 23:26:09[main] [DirectJDKLog.java - log] [StandardService:173] - Starting service [Tomcat]
+INFO  2021-10-04 23:26:09[main] [DirectJDKLog.java - log] [StandardEngine:173] - Starting Servlet engine: [Apache Tomcat/9.0.53]
+INFO  2021-10-04 23:26:09[main] [DirectJDKLog.java - log] [[/]:173] - Initializing Spring embedded WebApplicationContext
+INFO  2021-10-04 23:26:09[main] [ServletWebServerApplicationContext.java - prepareWebApplicationContext] [ServletWebServerApplicationContext:290] - Root WebApplicationContext: initialization completed in 566 ms
+INFO  2021-10-04 23:26:10[main] [TomcatWebServer.java - start] [TomcatWebServer:220] - Tomcat started on port(s): 8080 (http) with context path ''
+INFO  2021-10-04 23:26:10[main] [StartupInfoLogger.java - logStarted] [BackendApplication:61] - Started BackendApplication in 1.152 seconds (JVM running for 1.736)
+INFO  2021-10-04 23:26:24[http-nio-8080-exec-1] [DirectJDKLog.java - log] [[/]:173] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+INFO  2021-10-04 23:26:24[http-nio-8080-exec-1] [FrameworkServlet.java - initServletBean] [DispatcherServlet:525] - Initializing Servlet 'dispatcherServlet'
+INFO  2021-10-04 23:26:24[http-nio-8080-exec-1] [FrameworkServlet.java - initServletBean] [DispatcherServlet:547] - Completed initialization in 1 ms
+INFO  2021-10-04 23:26:24[http-nio-8080-exec-1] [LogInterceptor.java - preHandle] [LogInterceptor:16] - url : /
+INFO  2021-10-04 23:26:24[http-nio-8080-exec-1] [LogInterceptor.java - postHandle] [LogInterceptor:22] - response status: 404
+INFO  2021-10-04 23:26:24[http-nio-8080-exec-1] [LogInterceptor.java - preHandle] [LogInterceptor:16] - url : /error
+INFO  2021-10-04 23:26:24[http-nio-8080-exec-1] [LogInterceptor.java - postHandle] [LogInterceptor:22] - response status: 404
+INFO  2021-10-04 23:26:39[http-nio-8080-exec-4] [LogInterceptor.java - preHandle] [LogInterceptor:16] - url : /book/get/list
+INFO  2021-10-04 23:26:40[http-nio-8080-exec-5] [LogInterceptor.java - preHandle] [LogInterceptor:16] - url : /book/get/list
+INFO  2021-10-04 23:26:40[http-nio-8080-exec-5] [LogInterceptor.java - postHandle] [LogInterceptor:22] - response status: 200
+INFO  2021-10-04 23:26:50[http-nio-8080-exec-8] [LogInterceptor.java - preHandle] [LogInterceptor:16] - url : /book/get/list
+WARN  2021-10-04 23:26:50[http-nio-8080-exec-8] [AbstractHandlerExceptionResolver.java - logException] [DefaultHandlerExceptionResolver:207] - Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'query' for method parameter type String is not present]
+INFO  2021-10-04 23:26:50[http-nio-8080-exec-8] [LogInterceptor.java - preHandle] [LogInterceptor:16] - url : /error
+INFO  2021-10-04 23:26:50[http-nio-8080-exec-8] [LogInterceptor.java - postHandle] [LogInterceptor:22] - response status: 400
