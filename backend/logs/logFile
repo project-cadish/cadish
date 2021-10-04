@@ -293,3 +293,18 @@ INFO  2021-10-04 23:26:50[http-nio-8080-exec-8] [LogInterceptor.java - preHandle
 WARN  2021-10-04 23:26:50[http-nio-8080-exec-8] [AbstractHandlerExceptionResolver.java - logException] [DefaultHandlerExceptionResolver:207] - Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'query' for method parameter type String is not present]
 INFO  2021-10-04 23:26:50[http-nio-8080-exec-8] [LogInterceptor.java - preHandle] [LogInterceptor:16] - url : /error
 INFO  2021-10-04 23:26:50[http-nio-8080-exec-8] [LogInterceptor.java - postHandle] [LogInterceptor:22] - response status: 400
+INFO  2021-10-04 23:36:43[main] [StartupInfoLogger.java - logStarting] [BackendApplication:55] - Starting BackendApplication using Java 17 on DESKTOP-QJBICG3 with PID 351 (/root/cadish/backend/build/classes/java/main started by root in /root/cadish/backend)
+INFO  2021-10-04 23:36:43[main] [SpringApplication.java - logStartupProfileInfo] [BackendApplication:659] - No active profile set, falling back to default profiles: default
+INFO  2021-10-04 23:36:44[main] [TomcatWebServer.java - initialize] [TomcatWebServer:108] - Tomcat initialized with port(s): 8080 (http)
+INFO  2021-10-04 23:36:44[main] [DirectJDKLog.java - log] [StandardService:173] - Starting service [Tomcat]
+INFO  2021-10-04 23:36:44[main] [DirectJDKLog.java - log] [StandardEngine:173] - Starting Servlet engine: [Apache Tomcat/9.0.53]
+INFO  2021-10-04 23:36:45[main] [DirectJDKLog.java - log] [[/]:173] - Initializing Spring embedded WebApplicationContext
+INFO  2021-10-04 23:36:45[main] [ServletWebServerApplicationContext.java - prepareWebApplicationContext] [ServletWebServerApplicationContext:290] - Root WebApplicationContext: initialization completed in 1802 ms
+INFO  2021-10-04 23:36:45[main] [TomcatWebServer.java - start] [TomcatWebServer:220] - Tomcat started on port(s): 8080 (http) with context path ''
+INFO  2021-10-04 23:36:45[main] [StartupInfoLogger.java - logStarted] [BackendApplication:61] - Started BackendApplication in 2.441 seconds (JVM running for 2.998)
+INFO  2021-10-04 23:36:59[http-nio-8080-exec-1] [DirectJDKLog.java - log] [[/]:173] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+INFO  2021-10-04 23:36:59[http-nio-8080-exec-1] [FrameworkServlet.java - initServletBean] [DispatcherServlet:525] - Initializing Servlet 'dispatcherServlet'
+INFO  2021-10-04 23:36:59[http-nio-8080-exec-1] [FrameworkServlet.java - initServletBean] [DispatcherServlet:547] - Completed initialization in 1 ms
+INFO  2021-10-04 23:36:59[http-nio-8080-exec-1] [LogInterceptor.java - preHandle] [LogInterceptor:16] - url : /book/get/list
+INFO  2021-10-04 23:36:59[http-nio-8080-exec-2] [LogInterceptor.java - preHandle] [LogInterceptor:16] - url : /book/get/list
+INFO  2021-10-04 23:36:59[http-nio-8080-exec-2] [LogInterceptor.java - postHandle] [LogInterceptor:22] - response status: 200
